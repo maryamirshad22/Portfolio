@@ -1,0 +1,5 @@
+Replace this file with your real resume PDF, named exactly:
+Maryam-Irshad-Resume.pdf
+
+The Resume Download button in the Navbar links to:
+/resume/Maryam-Irshad-Resume.pdf
