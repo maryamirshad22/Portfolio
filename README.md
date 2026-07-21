@@ -73,8 +73,42 @@ Everything editorial lives in `data/`. Nothing else needs to change to update co
    screenshots (same filenames, or update `image` in `data/projects.ts`).
 8. **`public/og-image.png`** — add a 1200×630 social preview image (referenced in
    `app/layout.tsx` metadata).
-9. **Contact form** — `app/api/contact/route.ts` currently logs submissions.
-   Wire it up to an email provider (e.g. Resend) or a database in production.
+9. **Contact form** — already wired to send real email to
+   `maryamirshad842@gmail.com` via Gmail SMTP. You just need to add two
+   environment variables — see "Contact form email setup" below.
+
+## Contact form email setup
+
+The contact form sends real email to `maryamirshad842@gmail.com` using Gmail's
+SMTP server via Nodemailer (`app/api/contact/route.ts`). To make it work you
+need a **Gmail App Password** (a 16-character code — not your normal Gmail
+password, since Gmail blocks plain-password SMTP logins).
+
+1. Go to your Google Account → **Security**.
+2. Turn on **2-Step Verification** if it isn't already on (required for App Passwords).
+3. Go to **Security → 2-Step Verification → App passwords**
+   (or visit https://myaccount.google.com/apppasswords directly).
+4. Create a new app password — name it something like "Portfolio Contact Form".
+5. Google gives you a 16-character password. Copy it.
+6. In the project root, copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+7. Fill in the two values:
+   ```
+   GMAIL_USER=maryamirshad842@gmail.com
+   GMAIL_APP_PASSWORD=your16charapppassword
+   ```
+8. Restart `npm run dev`. Submit the contact form — the message will arrive in
+   your Gmail inbox, with **Reply-To** set to the sender's email so you can
+   reply directly.
+
+**Deploying (e.g. Vercel):** add `GMAIL_USER` and `GMAIL_APP_PASSWORD` as
+Environment Variables in your project settings — do not commit `.env.local`
+(it's already in `.gitignore`).
+
+If the env vars are missing, the API route returns a clear error instead of
+silently failing, and logs a reminder to the server console.
 
 ## Design system
 
