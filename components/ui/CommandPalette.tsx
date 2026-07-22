@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Search,
@@ -11,6 +12,7 @@ import {
   Sparkles,
   Mail,
   CornerDownLeft,
+  FileText,
 } from "lucide-react";
 import { GithubMark } from "./BrandIcons";
 
@@ -22,6 +24,7 @@ interface Command {
 }
 
 export function CommandPalette() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -38,6 +41,15 @@ export function CommandPalette() {
     { label: "Projects", hint: "What I've built", icon: FolderGit2, action: () => goTo("projects") },
     { label: "AI Projects", hint: "Agent & MCP work", icon: Code2, action: () => goTo("ai-projects") },
     { label: "Contact", hint: "Get in touch", icon: Mail, action: () => goTo("contact") },
+    {
+      label: "Writing",
+      hint: "Blog posts & notes",
+      icon: FileText,
+      action: () => {
+        setOpen(false);
+        router.push("/blog");
+      },
+    },
     {
       label: "Open GitHub",
       hint: "github.com/maryamirshad22",

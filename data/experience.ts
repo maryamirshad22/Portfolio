@@ -3,7 +3,6 @@ import {
   TimelineItem,
   Certification,
   Testimonial,
-  BlogPost,
 } from "@/types";
 
 export const experience: ExperienceItem[] = [
@@ -107,23 +106,5 @@ export const testimonials: Testimonial[] = [
     company: "—",
     quote:
       "This space is reserved for feedback from clients and collaborators. Check back soon.",
-  },
-];
-
-// Placeholder — matches the eventual blog post schema.
-export const blogPosts: BlogPost[] = [
-  {
-    title: "Building my first MCP server",
-    excerpt: "Notes on writing a Model Context Protocol server from scratch — coming soon.",
-    date: "Coming soon",
-    readTime: "—",
-    tag: "AI Engineering",
-  },
-  {
-    title: "Django Ninja vs DRF for small APIs",
-    excerpt: "A practical comparison based on shipping both in production — coming soon.",
-    date: "Coming soon",
-    readTime: "—",
-    tag: "Backend",
   },
 ];

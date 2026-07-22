@@ -48,7 +48,8 @@ components/
 data/                 All content lives here — edit these files to update the site
   projects.ts         Project case studies (web + AI)
   skills.ts            Skill levels + tech stack marquee items
-  experience.ts        Work experience, timeline, certifications, testimonials, blog
+  experience.ts        Work experience, timeline, certifications, testimonials
+  blog.ts               Full blog post content (used by /blog and /blog/[slug])
   social.ts            Site config (name, email, resume URL) + social links
 
 types/index.ts        Shared TypeScript types for the content layer
@@ -62,18 +63,22 @@ Everything editorial lives in `data/`. Nothing else needs to change to update co
 1. **`data/social.ts`** — name, email, resume link, GitHub/LinkedIn/X URLs.
 2. **`data/projects.ts`** — swap in your real projects. Each entry powers both the
    card and the full case-study modal (features, challenges, role, links).
-3. **`data/experience.ts`** — experience, timeline, certifications, testimonials, blog.
-4. **`data/skills.ts`** — skill percentages and the tech-stack marquee.
-5. **`components/sections/GithubStats.tsx`** — set `GITHUB_USERNAME` to your real
+3. **`data/experience.ts`** — experience, timeline, certifications, testimonials.
+4. **`data/blog.ts`** — real blog posts, rendered at `/blog` (index) and
+   `/blog/[slug]` (full post). Each post is an array of content blocks
+   (`p`, `h2`, `list`, `code`) — add a new object to the array to publish a
+   new post, no routing changes needed.
+5. **`data/skills.ts`** — skill percentages and the tech-stack marquee.
+6. **`components/sections/GithubStats.tsx`** — set `GITHUB_USERNAME` to your real
    handle; it fetches live stats from the GitHub API with a static fallback if the
    request fails.
-6. **`public/resume/`** — replace the placeholder with your real
+7. **`public/resume/`** — replace the placeholder with your real
    `Maryam-Irshad-Resume.pdf` (the Navbar's Resume button already links to it).
-7. **`public/images/projects/`** — swap the generated gradient placeholders for real
+8. **`public/images/projects/`** — swap the generated gradient placeholders for real
    screenshots (same filenames, or update `image` in `data/projects.ts`).
-8. **`public/og-image.png`** — add a 1200×630 social preview image (referenced in
+9. **`public/og-image.png`** — add a 1200×630 social preview image (referenced in
    `app/layout.tsx` metadata).
-9. **Contact form** — already wired to send real email to
+10. **Contact form** — already wired to send real email to
    `maryamirshad842@gmail.com` via Gmail SMTP. You just need to add two
    environment variables — see "Contact form email setup" below.
 

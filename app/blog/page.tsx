@@ -1,19 +1,33 @@
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Badge } from "@/components/ui/Badge";
-import { Reveal } from "@/components/ui/Reveal";
+import type { Metadata } from "next";
+import { ArrowLeft, ArrowUpRight, FileText } from "lucide-react";
 import { blogPosts } from "@/data/blog";
-import { FileText, ArrowUpRight } from "lucide-react";
+import { Badge } from "@/components/ui/Badge";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { Reveal } from "@/components/ui/Reveal";
 
-export function Blog() {
+export const metadata: Metadata = {
+  title: "Writing",
+  description: "Long-form write-ups on full-stack development and AI engineering.",
+};
+
+export default function BlogIndexPage() {
   return (
-    <section id="blog" className="mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-32">
-      <SectionHeading
-        eyebrow="Writing"
-        title="Notes from the build."
-        description="Long-form write-ups on what I'm learning, straight from shipping real projects."
-      />
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-32 pb-24 sm:pb-32">
+      <Reveal>
+        <Link
+          href="/#blog"
+          className="inline-flex items-center gap-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors mb-10"
+        >
+          <ArrowLeft size={14} /> Back home
+        </Link>
+        <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
+          Writing
+        </h1>
+        <p className="text-lg text-[var(--text-muted)] mb-14 max-w-lg">
+          Notes on what I&apos;m building and learning — full-stack development and AI engineering.
+        </p>
+      </Reveal>
 
       <div className="grid sm:grid-cols-2 gap-6">
         {blogPosts.map((post, i) => (
@@ -42,6 +56,6 @@ export function Blog() {
           </Reveal>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

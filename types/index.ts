@@ -59,12 +59,20 @@ export interface Testimonial {
   avatar?: string;
 }
 
+export type BlogBlock =
+  | { type: "p"; text: string }
+  | { type: "h2"; text: string }
+  | { type: "code"; text: string; lang?: string }
+  | { type: "list"; items: string[] };
+
 export interface BlogPost {
+  slug: string;
   title: string;
   excerpt: string;
   date: string;
   readTime: string;
   tag: string;
+  content: BlogBlock[];
 }
 
 export interface SocialLink {
