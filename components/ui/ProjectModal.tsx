@@ -61,9 +61,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="p-6 sm:p-8">
               <div className="flex items-start justify-between gap-3 mb-2">
                 <h3 className="font-display text-2xl font-semibold">{project.title}</h3>
-                <span className="font-mono-eyebrow text-xs text-[var(--text-faint)] pt-2 shrink-0">
-                  {project.year}
-                </span>
+                {project.year && (
+                  <span className="font-mono-eyebrow text-xs text-[var(--text-faint)] pt-2 shrink-0">
+                    {project.year}
+                  </span>
+                )}
               </div>
               <p className="text-[var(--text-muted)] mb-6">{project.description}</p>
 
@@ -112,8 +114,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                {project.github && (
+              <div className="flex flex-wrap items-center gap-3">
+                {project.github ? (
                   <a
                     href={project.github}
                     target="_blank"
@@ -122,8 +124,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   >
                     <GithubMark size={15} /> View source
                   </a>
-                )}
-                {project.demo && (
+                ) : project.githubNote ? (
+                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-[var(--text-faint)] border border-[var(--border)]">
+                    <GithubMark size={15} /> {project.githubNote}
+                  </span>
+                ) : null}
+                {project.demo ? (
                   <a
                     href={project.demo}
                     target="_blank"
@@ -132,7 +138,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   >
                     <ExternalLink size={15} /> Live demo
                   </a>
-                )}
+                ) : project.demoNote ? (
+                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-[var(--text-faint)] border border-[var(--border)]">
+                    <ExternalLink size={15} /> {project.demoNote}
+                  </span>
+                ) : null}
               </div>
             </div>
           </motion.div>

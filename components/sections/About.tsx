@@ -1,13 +1,13 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Reveal } from "@/components/ui/Reveal";
-import { MapPin, GraduationCap, Target, Coffee } from "lucide-react";
+import { MapPin, Briefcase, Rocket, Target } from "lucide-react";
 
 const facts = [
-  { icon: MapPin, label: "Based in", value: "Pakistan · Remote-first" },
-  { icon: GraduationCap, label: "Focus", value: "Full-Stack + AI Engineering" },
-  { icon: Target, label: "Goal", value: "World-class AI systems engineer" },
-  { icon: Coffee, label: "Currently", value: "Building agents with MCP" },
+  { icon: MapPin, label: "Based in", value: "Pakistan · Remote-friendly" },
+  { icon: Briefcase, label: "Currently", value: "Developer Intern @ AIT" },
+  { icon: Rocket, label: "Freelancing since", value: "2024" },
+  { icon: Target, label: "Goal", value: "World-class Full-Stack AI Engineer" },
 ];
 
 export function About() {
@@ -22,25 +22,25 @@ export function About() {
         <Reveal className="lg:col-span-3 space-y-5 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed">
           <p>
             I&apos;m Maryam — a software developer who spends most of her time in
-            the space between frontend polish and backend correctness. I build
-            with{" "}
-            <span className="text-[var(--text)]">
-              Next.js, React, and TypeScript
-            </span>{" "}
-            on the frontend, and{" "}
-            <span className="text-[var(--text)]">Python with Django and Django Ninja</span>{" "}
-            on the backend — shipping products that feel fast and stay
-            maintainable.
+            the space between frontend polish and backend correctness. As a{" "}
+            <span className="text-[var(--text)]">Developer Intern at Al-Khair Institute of Technology (AIT)</span>
+            , I&apos;ve worked across real production projects: building out an{" "}
+            <span className="text-[var(--text)]">Employee Management System</span> and a
+            multi-dashboard <span className="text-[var(--text)]">Learning Management System</span>,
+            and recreating a full client website — the{" "}
+            <span className="text-[var(--text)]">Sherwani Builder</span> site — pixel by pixel
+            across five pages.
           </p>
           <p>
-            Over the last year, my focus has shifted toward{" "}
-            <span className="text-[var(--text)]">AI engineering</span>: designing
-            agents that can reason about a task, call the right tool, and act on
-            real data through the{" "}
-            <span className="text-[var(--text)]">Model Context Protocol</span>.
-            I&apos;m especially interested in making agent behavior inspectable —
-            not a black box, but a system you can reason about like any other
-            piece of software.
+            Alongside that, I freelance independently with{" "}
+            <span className="text-[var(--text)]">Next.js, React, and Tailwind CSS</span>, and
+            I&apos;ve been pulling my growing interest in AI into real work — designing the
+            backend architecture for an AI customer-support platform, and building an
+            animated, holographic chatbot interface for{" "}
+            <span className="text-[var(--text)]">Idara Al-Khair&apos;s</span> nonprofit
+            website — applying what I&apos;ve studied about agents, LLM APIs, and the{" "}
+            <span className="text-[var(--text)]">Model Context Protocol</span> to things
+            people actually use.
           </p>
           <p>
             My goal is to become a world-class Full-Stack AI Engineer and build

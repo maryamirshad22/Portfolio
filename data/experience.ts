@@ -7,93 +7,86 @@ import {
 
 export const experience: ExperienceItem[] = [
   {
+    company: "Al-Khair Institute of Technology (AIT)",
+    role: "Developer Intern",
+    start: "March 2026",
+    end: "July 2026",
+    location: "Pakistan",
+    summary:
+      "Contributed to three production web projects as part of a development team — building CRUD-heavy full-stack modules, recreating a client website end to end, and laying the backend foundation for an AI-driven platform.",
+    highlights: [
+      "Built and maintained Employee Management System (EMS) modules — institutions, departments, designations, branches, employees, and dashboards — integrating frontend components with Django REST APIs",
+      "Recreated the Sherwani Builder main website and four subpages (Bloome Garden, Sherwani Royal Suite, Address One, Hub Valley), including full site navigation",
+      "Developed Admin, Teacher, Student, and Coordinator dashboards for a Learning Management System (LMS) with reusable components and a consistent design system",
+      "Designed the custom-auth and content-management backend for the AITS Website, applying research into AI agents, LLM APIs, and the Model Context Protocol (MCP)",
+    ],
+    stack: ["Next.js", "React.js", "Tailwind CSS", "Django", "Django REST Framework", "PostgreSQL", "Docker", "Git & GitHub"],
+  },
+  {
     company: "Freelance / Independent",
-    role: "Full-Stack Developer & AI Engineer",
+    role: "Freelance Web Developer",
     start: "2024",
     end: "Present",
     location: "Remote",
     summary:
-      "Designing and shipping full-stack products end to end for small teams and founders, with a growing focus on AI agent tooling built on MCP.",
-    highlights: [
-      "Delivered 6+ production web apps using Next.js, TypeScript, and Django",
-      "Built two MCP-connected AI agent products from architecture to deployment",
-      "Owned the full lifecycle: design, API, database, deployment, and monitoring",
-    ],
-    stack: ["Next.js", "TypeScript", "Django Ninja", "Docker", "MCP"],
-  },
-  {
-    company: "Self-Directed Study",
-    role: "AI Engineering Specialization",
-    start: "2025",
-    end: "Present",
-    location: "Remote",
-    summary:
-      "Deepening expertise in agentic systems, LLM tool-use, and the Model Context Protocol through applied projects rather than isolated tutorials.",
-    highlights: [
-      "Built and open-sourced MCP servers used in two personal AI products",
-      "Studied retrieval, evaluation, and agent-orchestration patterns in depth",
-    ],
-    stack: ["Python", "MCP", "REST APIs", "Docker"],
+      "Independent freelance web development work using Next.js, React, and Tailwind CSS, alongside academic and internship commitments.",
+    highlights: [],
+    stack: ["Next.js", "React", "Tailwind CSS"],
   },
 ];
 
 export const timeline: TimelineItem[] = [
   {
-    year: "2022",
-    title: "Started learning web development",
+    year: "2021",
+    title: "Office Automation Course — Aptech",
     description:
-      "Began with HTML, CSS, and JavaScript fundamentals, then moved into React within the first year.",
+      "Started the journey with an Office Automation course at Aptech, building the foundation before moving into development.",
     type: "learning",
   },
   {
     year: "2023",
-    title: "Went full-stack",
+    title: "Started learning web development — SMIT",
     description:
-      "Picked up Python and Django to build complete products, not just frontends — and started shipping REST APIs.",
+      "Began learning web development at Saylani Mass IT Training (SMIT), picking up the fundamentals that led into full-stack work.",
     type: "learning",
   },
   {
     year: "2024",
-    title: "First freelance clients",
+    title: "Started freelancing",
     description:
-      "Took on independent full-stack projects end to end, from database design to Vercel deployment.",
+      "Began freelancing independently, building projects with Next.js, React, and Tailwind CSS.",
     type: "career",
   },
   {
-    year: "2025",
-    title: "Pivoted toward AI engineering",
+    year: "2026",
+    title: "Cyber Security & Networking Course — AIT",
     description:
-      "Started building AI agents and adopted the Model Context Protocol to connect them to real tools and data.",
-    type: "milestone",
+      "Studied Cyber Security & Networking at Al-Khair Institute of Technology (AIT), broadening beyond application development.",
+    type: "learning",
   },
   {
     year: "2026",
-    title: "Building toward world-class AI engineering",
+    title: "Developer Intern — AIT",
     description:
-      "Currently deepening agent-orchestration and evaluation skills while shipping MCP-based products.",
-    type: "milestone",
+      "Joined AIT as a Developer Intern, building the Employee Management System, Learning Management System, Sherwani Builder Website, AITS Website, and the IAK chatbot.",
+    type: "career",
   },
 ];
 
 export const certifications: Certification[] = [
   {
-    name: "Next.js & React — Advanced Patterns",
-    issuer: "Self-paced / Applied Projects",
-    date: "2024",
+    name: "Office Automation Course",
+    issuer: "Aptech",
+    date: "2021",
   },
   {
-    name: "Python for Backend Development",
-    issuer: "Self-paced / Applied Projects",
+    name: "Web Development",
+    issuer: "SMIT (Saylani Mass IT Training)",
     date: "2023",
   },
   {
-    name: "Docker & Containerized Deployments",
-    issuer: "Self-paced / Applied Projects",
-    date: "2025",
-  },
-  {
-    name: "AI Agents & the Model Context Protocol",
-    issuer: "Self-paced / Applied Projects",
+    name: "Cyber Security & Networking",
+    issuer: "Al-Khair Institute of Technology (AIT)",
     date: "2026",
   },
 ];

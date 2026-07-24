@@ -22,10 +22,17 @@ export const skillGroups: SkillGroup[] = [
   {
     label: "AI & Agents",
     items: [
-      { name: "AI Agent Design", level: 80 },
-      { name: "Model Context Protocol", level: 78 },
-      { name: "LLM Integration", level: 82 },
-      { name: "Prompt Engineering", level: 85 },
+      { name: "AI Agent Design", level: 55 },
+      { name: "Model Context Protocol", level: 55 },
+      { name: "LLM Integration", level: 60 },
+      { name: "Prompt Engineering", level: 65 },
+    ],
+  },
+  {
+    label: "Security & Networking",
+    items: [
+      { name: "Network Fundamentals", level: 45 },
+      { name: "Cyber Security Basics", level: 45 },
     ],
   },
   {

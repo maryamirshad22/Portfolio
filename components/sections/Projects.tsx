@@ -8,7 +8,7 @@ export function Projects() {
       <SectionHeading
         eyebrow="Featured Projects"
         title="Full-stack products I've shipped."
-        description="Each one taken from database schema to a deployed URL — click through for the full case study."
+        description="Real work from internships and team projects — click through for the full case study."
       />
       <ProjectsGrid projects={webProjects} />
     </section>

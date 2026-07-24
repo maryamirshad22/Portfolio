@@ -11,7 +11,7 @@ export function Experience() {
     <section id="experience" className="mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-32">
       <SectionHeading
         eyebrow="Experience"
-        title="Where I've put this into practice."
+        title="Real-world impact through production software."
       />
 
       <div className="space-y-6">
@@ -36,14 +36,16 @@ export function Experience() {
                 <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
                   {e.summary}
                 </p>
-                <ul className="space-y-2 mb-5">
-                  {e.highlights.map((h) => (
-                    <li key={h} className="flex gap-2 text-sm text-[var(--text-muted)]">
-                      <span className="text-[var(--color-accent-violet)] mt-1">▸</span>
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+                {e.highlights.length > 0 && (
+                  <ul className="space-y-2 mb-5">
+                    {e.highlights.map((h) => (
+                      <li key={h} className="flex gap-2 text-sm text-[var(--text-muted)]">
+                        <span className="text-[var(--color-accent-violet)] mt-1">▸</span>
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <div className="flex flex-wrap gap-1.5">
                   {e.stack.map((s) => (
                     <Badge key={s}>{s}</Badge>

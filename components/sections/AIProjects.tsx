@@ -1,8 +1,14 @@
+import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProjectsGrid } from "./ProjectsGrid";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { Reveal } from "@/components/ui/Reveal";
+import { Bot } from "lucide-react";
 import { aiProjects } from "@/data/projects";
+import { ProjectsGrid } from "./ProjectsGrid";
 
 export function AIProjects() {
+  const hasProjects = aiProjects.length > 0;
+
   return (
     <section
       id="ai-projects"
@@ -17,10 +23,29 @@ export function AIProjects() {
       />
       <SectionHeading
         eyebrow="AI Engineering"
-        title="Agents that call real tools."
-        description="Projects built around the Model Context Protocol — connecting LLMs to live data and actions instead of static prompts."
+        title="Building the backbone for AI-driven products."
+        description="Backend and platform work for AI-powered applications — grounded in hands-on study of agents, LLM APIs, prompt engineering, and the Model Context Protocol."
       />
-      <ProjectsGrid projects={aiProjects} />
+
+      {hasProjects ? (
+        <ProjectsGrid projects={aiProjects} />
+      ) : (
+        <Reveal>
+          <GlassCard hover={false} className="text-center py-14 max-w-xl mx-auto">
+            <Bot size={22} className="mx-auto text-[var(--text-faint)] mb-4" />
+            <p className="text-[var(--text-muted)]">
+              Currently building my first public AI agent project on MCP.
+            </p>
+            <p className="text-sm text-[var(--text-faint)] mt-2">
+              Case studies land here as soon as they&apos;re ready — check the{" "}
+              <Link href="/blog" className="text-[var(--color-accent-violet)] hover:underline">
+                writing section
+              </Link>{" "}
+              for progress notes in the meantime.
+            </p>
+          </GlassCard>
+        </Reveal>
+      )}
     </section>
   );
 }

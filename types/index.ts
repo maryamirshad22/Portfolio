@@ -10,9 +10,11 @@ export interface Project {
   challenges: string[];
   role: string;
   github?: string;
+  githubNote?: string;
   demo?: string;
+  demoNote?: string;
   featured?: boolean;
-  year: string;
+  year?: string;
 }
 
 export interface SkillGroup {

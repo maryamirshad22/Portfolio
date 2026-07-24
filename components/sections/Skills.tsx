@@ -11,7 +11,7 @@ export function Skills() {
     <section id="skills" className="mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-32">
       <SectionHeading
         eyebrow="Skills"
-        title="What I bring to a team."
+        title="Tech Stack & Capabilities."
         description="A working proficiency map — grown through shipped projects, not just tutorials."
       />
 

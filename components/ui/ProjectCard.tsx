@@ -31,9 +31,11 @@ export function ProjectCard({ project, onOpenCaseStudy }: ProjectCardProps) {
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-1.5">
           <h3 className="font-display text-lg font-semibold">{project.title}</h3>
-          <span className="font-mono-eyebrow text-xs text-[var(--text-faint)] shrink-0 pt-1">
-            {project.year}
-          </span>
+          {project.year && (
+            <span className="font-mono-eyebrow text-xs text-[var(--text-faint)] shrink-0 pt-1">
+              {project.year}
+            </span>
+          )}
         </div>
         <p className="text-sm text-[var(--text-muted)] mb-4">{project.tagline}</p>
 

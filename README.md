@@ -61,8 +61,10 @@ lib/utils.ts           `cn()` class-merge helper
 Everything editorial lives in `data/`. Nothing else needs to change to update content:
 
 1. **`data/social.ts`** — name, email, resume link, GitHub/LinkedIn/X URLs.
-2. **`data/projects.ts`** — swap in your real projects. Each entry powers both the
-   card and the full case-study modal (features, challenges, role, links).
+2. **`data/projects.ts`** — currently holds five real projects: EMS, LMS, IAK
+   website, Sherwani Builder Website, and AITS Website (AI). Add `github` /
+   `demo` URLs once you have public links — until then, `githubNote` /
+   `demoNote` show a status pill instead (e.g. "Private repository", "In development").
 3. **`data/experience.ts`** — experience, timeline, certifications, testimonials.
 4. **`data/blog.ts`** — real blog posts, rendered at `/blog` (index) and
    `/blog/[slug]` (full post). Each post is an array of content blocks
