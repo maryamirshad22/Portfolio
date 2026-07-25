@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Search,
   User,
-  Code2,
   Briefcase,
   FolderGit2,
   Sparkles,
@@ -39,7 +38,6 @@ export function CommandPalette() {
     { label: "Skills", hint: "What I know", icon: Sparkles, action: () => goTo("skills") },
     { label: "Experience", hint: "Where I've worked", icon: Briefcase, action: () => goTo("experience") },
     { label: "Projects", hint: "What I've built", icon: FolderGit2, action: () => goTo("projects") },
-    { label: "AI Projects", hint: "Agent & MCP work", icon: Code2, action: () => goTo("ai-projects") },
     { label: "Contact", hint: "Get in touch", icon: Mail, action: () => goTo("contact") },
     {
       label: "Writing",

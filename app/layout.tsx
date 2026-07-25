@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CommandPalette } from "@/components/ui/CommandPalette";
+import { AuroraBackground } from "@/components/ui/AuroraBackground";
 import { siteConfig } from "@/data/social";
 
 const inter = Inter({
@@ -80,16 +81,19 @@ export default function RootLayout({
         className={`${inter.variable} font-body antialiased bg-[var(--bg)] text-[var(--text)] selection:bg-violet-500`}
       >
         <ThemeProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--surface)] focus:border focus:border-[var(--border)]"
-          >
-            Skip to content
-          </a>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <CommandPalette />
+          <AuroraBackground />
+          <div className="relative z-10">
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--surface)] focus:border focus:border-[var(--border)]"
+            >
+              Skip to content
+            </a>
+            <Navbar />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <CommandPalette />
+          </div>
         </ThemeProvider>
       </body>
     </html>

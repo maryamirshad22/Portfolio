@@ -4,7 +4,6 @@ import { Skills } from "@/components/sections/Skills";
 import { TechStack } from "@/components/sections/TechStack";
 import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
-import { AIProjects } from "@/components/sections/AIProjects";
 import { OpenSource } from "@/components/sections/OpenSource";
 import { GithubStats } from "@/components/sections/GithubStats";
 import { LearningJourney } from "@/components/sections/LearningJourney";
@@ -22,7 +21,6 @@ export default function Home() {
       <TechStack />
       <Experience />
       <Projects />
-      <AIProjects />
       <GithubStats />
       <OpenSource />
       <LearningJourney />

@@ -11,7 +11,6 @@ const links = [
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "AI Projects", href: "#ai-projects" },
   { label: "Timeline", href: "#timeline" },
   { label: "Contact", href: "#contact" },
 ];

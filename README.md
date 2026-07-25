@@ -126,6 +126,17 @@ silently failing, and logs a reminder to the server console.
   (`components/ui/AnimatedNetwork.tsx`), representing the agent/tool-connection
   model central to Maryam's AI work — plus a functional `⌘K` command palette
   (`components/ui/CommandPalette.tsx`) for quick navigation.
+- A site-wide animated aurora background (`components/ui/AuroraBackground.tsx`)
+  sits fixed behind every section — three slow-drifting, blurred gradient blobs
+  in pure CSS, dimmed automatically in light mode, and disabled entirely under
+  `prefers-reduced-motion`.
+- Projects (web + AI) live in one filterable section (`components/sections/ProjectsGrid.tsx`)
+  with All / Web / AI tabs, instead of a separate AI Projects section — add new
+  projects to `data/projects.ts` with the right `category` and they're picked up
+  automatically. The Journey section similarly toggles between the timeline and
+  certifications via tabs (`components/sections/Journey.tsx`), and Skills uses the
+  same tab pattern to show one category's proficiency bars at a time
+  (`components/sections/Skills.tsx`).
 - Motion is centralized in `components/ui/Reveal.tsx` for consistent scroll-reveal
   timing across every section, and `prefers-reduced-motion` is respected globally.
 
