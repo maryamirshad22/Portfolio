@@ -1,13 +1,54 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { GithubMark } from "@/components/ui/BrandIcons";
 import { AnimatedNetwork } from "@/components/ui/AnimatedNetwork";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/social";
+import { cn } from "@/lib/utils";
+
+const headingWords = [
+  { text: "Building" },
+  { text: "software" },
+  { text: "that" },
+  { text: "thinks,", gradient: true },
+  { text: "connects,", gradient: true },
+  { text: "and" },
+  { text: "ships." },
+];
 
 export function Hero() {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useLayoutEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion || !headingRef.current) return;
+
+    const words = headingRef.current.querySelectorAll("[data-word]");
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        words,
+        { yPercent: 120, opacity: 0, rotate: 4 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          rotate: 0,
+          duration: 0.9,
+          stagger: 0.06,
+          delay: 0.15,
+          ease: "power4.out",
+        }
+      );
+    }, headingRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="top"
@@ -38,15 +79,21 @@ export function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+        <h1
+          ref={headingRef}
           className="font-display font-semibold tracking-tight text-4xl sm:text-6xl md:text-7xl max-w-4xl leading-[1.05]"
         >
-          Building software that{" "}
-          <span className="text-gradient">thinks, connects,</span> and ships.
-        </motion.h1>
+          {headingWords.map((w, i) => (
+            <span key={i} className="inline-block overflow-hidden pb-1 align-bottom mr-[0.22em]">
+              <span
+                data-word
+                className={cn("inline-block", w.gradient && "text-gradient")}
+              >
+                {w.text}
+              </span>
+            </span>
+          ))}
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}

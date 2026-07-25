@@ -7,7 +7,8 @@ A premium, animated personal portfolio built with Next.js 16 (App Router), TypeS
 - **Next.js 16** (App Router, Turbopack)
 - **React 19** + **TypeScript**
 - **Tailwind CSS v4** (CSS-based design tokens, no `tailwind.config` needed)
-- **Framer Motion** for animation
+- **Framer Motion** for section/component animation
+- **GSAP** for the site-wide animated background and the Hero's staggered heading reveal
 - **next-themes** for dark/light mode
 - **lucide-react** for icons (+ custom inline SVGs for GitHub/LinkedIn/X, since brand marks were removed from lucide)
 - **zod** for the contact form's API validation
@@ -126,10 +127,12 @@ silently failing, and logs a reminder to the server console.
   (`components/ui/AnimatedNetwork.tsx`), representing the agent/tool-connection
   model central to Maryam's AI work — plus a functional `⌘K` command palette
   (`components/ui/CommandPalette.tsx`) for quick navigation.
-- A site-wide animated aurora background (`components/ui/AuroraBackground.tsx`)
-  sits fixed behind every section — three slow-drifting, blurred gradient blobs
-  in pure CSS, dimmed automatically in light mode, and disabled entirely under
-  `prefers-reduced-motion`.
+- A site-wide, GSAP-powered animated background (`components/ui/AnimatedBackground.tsx`)
+  sits fixed behind every section — four gradient blobs with continuous organic
+  floating motion (randomized per blob so nothing loops in sync) plus subtle
+  mouse-parallax, dimmed automatically in light mode, and skipped entirely under
+  `prefers-reduced-motion`. The Hero heading also uses GSAP for a word-by-word
+  stagger reveal on load.
 - Projects (web + AI) live in one filterable section (`components/sections/ProjectsGrid.tsx`)
   with All / Web / AI tabs, instead of a separate AI Projects section — add new
   projects to `data/projects.ts` with the right `category` and they're picked up

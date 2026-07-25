@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CommandPalette } from "@/components/ui/CommandPalette";
-import { AuroraBackground } from "@/components/ui/AuroraBackground";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 import { siteConfig } from "@/data/social";
 
 const inter = Inter({
@@ -81,7 +81,7 @@ export default function RootLayout({
         className={`${inter.variable} font-body antialiased bg-[var(--bg)] text-[var(--text)] selection:bg-violet-500`}
       >
         <ThemeProvider>
-          <AuroraBackground />
+          <AnimatedBackground />
           <div className="relative z-10">
             <a
               href="#main-content"
