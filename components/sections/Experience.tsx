@@ -11,7 +11,7 @@ export function Experience() {
     <section id="experience" className="mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-32">
       <SectionHeading
         eyebrow="Experience"
-        title="Real-world impact through production software."
+        title="Where I've put this into practice."
       />
 
       <div className="space-y-6">
