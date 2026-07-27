@@ -127,12 +127,13 @@ silently failing, and logs a reminder to the server console.
   (`components/ui/AnimatedNetwork.tsx`), representing the agent/tool-connection
   model central to Maryam's AI work — plus a functional `⌘K` command palette
   (`components/ui/CommandPalette.tsx`) for quick navigation.
-- A site-wide, GSAP-powered animated background (`components/ui/AnimatedBackground.tsx`)
-  sits fixed behind every section — four gradient blobs with continuous organic
-  floating motion (randomized per blob so nothing loops in sync) plus subtle
-  mouse-parallax, dimmed automatically in light mode, and skipped entirely under
-  `prefers-reduced-motion`. The Hero heading also uses GSAP for a word-by-word
-  stagger reveal on load.
+- A site-wide interactive grid background (`components/ui/background-boxes.tsx` +
+  `components/ui/AnimatedBackground.tsx`) sits fixed behind every section — a
+  hover-reactive box grid (adapted from a common "background boxes" pattern,
+  cut down from 15,000 to ~750 cells for performance) with a radial mask so it
+  glows near the center of the viewport and fades to solid at the edges. Colors
+  and borders pull from the theme tokens, so it adapts to dark/light mode
+  automatically. The Hero heading uses GSAP for a word-by-word stagger reveal on load.
 - Projects (web + AI) live in one filterable section (`components/sections/ProjectsGrid.tsx`)
   with All / Web / AI tabs, instead of a separate AI Projects section — add new
   projects to `data/projects.ts` with the right `category` and they're picked up

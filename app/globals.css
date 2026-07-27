@@ -123,24 +123,3 @@ body {
   );
   background-size: 24px 24px;
 }
-
-/* ---- Site-wide animated background (positioning only — motion driven by GSAP) ---- */
-.aurora-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.aurora-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: var(--aurora-opacity, 0.45);
-  will-change: transform;
-}
-
-[data-theme="light"] {
-  --aurora-opacity: 0.24;
-}
