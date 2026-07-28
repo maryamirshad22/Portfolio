@@ -9,20 +9,23 @@ import { cn } from "@/lib/utils";
 const TWINKLE_COLORS = ["#6d5ef9", "#22d3ee", "#34d399", "#f472b6"];
 
 /**
- * Adapted from the common "Background Boxes" pattern. The original renders a
- * 150x100 grid (15,000 divs) sized for a single bounded hero container — far
- * too heavy to keep mounted behind every section of a full page. This version
- * cuts the grid down to roughly 750 cells and pulls colors/borders from the
- * site's theme tokens so it adapts to dark/light mode automatically.
- *
- * On top of the original's hover-only interaction, a GSAP loop continuously
- * "twinkles" random cells on its own — so the grid stays visibly alive even
- * without the cursor moving over it.
+ * Adapted from the common "Background Boxes" pattern. Two changes from the
+ * original 150x100-cell version:
+ *  1. Grid density cut way down (from 15,000 cells to ~1,200) — the original
+ *     is sized for one bounded hero container, not a permanent site-wide layer.
+ *  2. The original's skewX/skewY/scale/translate transform is dropped entirely.
+ *     That transform assumes a huge oversized grid (150x100) to still cover the
+ *     viewport after being skewed and shrunk to 67.5% — at our much smaller
+ *     cell count, the same transform left the visible grid far too small to
+ *     cover the screen at all. A plain, non-transformed grid sized to the
+ *     viewport is simpler and guarantees full coverage.
  */
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const rows = new Array(30).fill(1);
-  const cols = new Array(25).fill(1);
+  // 34 cols x 36 rows at 64x32px cells comfortably covers up to ~2176x1152px —
+  // safely covers the vast majority of real screens as a `fixed` (viewport-only) layer.
+  const rows = new Array(36).fill(1);
+  const cols = new Array(34).fill(1);
 
   // Brand accent palette instead of arbitrary pastels, so hovers stay on-brand.
   const colors = [
@@ -32,7 +35,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     "var(--color-accent-pink)",
   ];
 
-  // Precomputed once (not during render) so hover colors stay pure/stable per cell.
+  // Precomputed once (not during render) so hover colors stay stable per cell.
   const colorGrid = React.useMemo(
     () =>
       rows.map(() =>
@@ -58,8 +61,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
 
     function twinkle() {
       if (cancelled) return;
-      // Animate a small cluster each cycle so the effect reads clearly at any grid size.
-      const batch = gsap.utils.shuffle([...cells]).slice(0, 3);
+      const batch = gsap.utils.shuffle([...cells]).slice(0, 4);
       batch.forEach((cell) => {
         gsap.fromTo(
           cell,
@@ -73,7 +75,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           }
         );
       });
-      call = gsap.delayedCall(gsap.utils.random(0.4, 1.1), twinkle);
+      call = gsap.delayedCall(gsap.utils.random(0.35, 0.9), twinkle);
     }
 
     twinkle();
@@ -88,18 +90,11 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   return (
     <div
       ref={containerRef}
-      style={{
-        transform:
-          "translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)",
-      }}
-      className={cn(
-        "absolute left-1/4 p-4 -top-1/4 flex -translate-x-1/2 -translate-y-1/2 w-full h-full z-0",
-        className
-      )}
+      className={cn("absolute inset-0 flex flex-col overflow-hidden", className)}
       {...rest}
     >
       {rows.map((_, i) => (
-        <div key={`row${i}`} className="w-16 h-8 border-l border-[var(--border-strong)] relative">
+        <div key={`row${i}`} className="flex shrink-0">
           {cols.map((_, j) => (
             <motion.div
               data-cell
@@ -108,7 +103,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 0 },
               }}
               key={`col${j}`}
-              className="w-16 h-8 border-r border-t border-[var(--border-strong)] relative"
+              className="w-16 h-8 shrink-0 border-r border-t border-[var(--border-strong)] relative"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg

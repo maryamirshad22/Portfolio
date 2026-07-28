@@ -72,12 +72,12 @@ export function GithubStats() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {items.map((item, i) => (
           <Reveal key={item.label} delay={i * 0.08}>
-            <GlassCard className="text-center">
-              <item.icon size={18} className="mx-auto text-[var(--color-accent-violet)] mb-3" />
+            <GlassCard className="text-center group">
+              <item.icon size={18} className="mx-auto text-[var(--color-accent-violet)] mb-3 group-hover:scale-110 transition-transform" />
               {loading ? (
                 <div className="h-8 w-14 mx-auto rounded bg-[var(--border)] animate-pulse" />
               ) : (
-                <p className="font-display text-3xl font-semibold tracking-tight">
+                <p className="font-display text-3xl font-semibold tracking-tight group-hover:text-[var(--color-accent-cyan)] transition-colors">
                   {item.value}
                   <span className="text-[var(--color-accent-emerald)]">+</span>
                 </p>

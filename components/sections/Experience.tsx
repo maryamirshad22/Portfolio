@@ -17,7 +17,7 @@ export function Experience() {
       <div className="space-y-6">
         {experience.map((e, i) => (
           <Reveal key={e.company} delay={i * 0.1}>
-            <GlassCard hover={false} className="grid md:grid-cols-[220px_1fr] gap-6">
+            <GlassCard className="grid md:grid-cols-[220px_1fr] gap-6">
               <div>
                 <div className="flex items-center gap-2 mb-2 md:hidden">
                   <Briefcase size={14} className="text-[var(--color-accent-violet)]" />
@@ -39,7 +39,7 @@ export function Experience() {
                 {e.highlights.length > 0 && (
                   <ul className="space-y-2 mb-5">
                     {e.highlights.map((h) => (
-                      <li key={h} className="flex gap-2 text-sm text-[var(--text-muted)]">
+                      <li key={h} className="flex gap-2 text-sm text-[var(--text-muted)] group-hover:text-[var(--text)] transition-colors">
                         <span className="text-[var(--color-accent-violet)] mt-1">▸</span>
                         {h}
                       </li>

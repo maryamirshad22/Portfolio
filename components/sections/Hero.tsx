@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { GithubMark } from "@/components/ui/BrandIcons";
 import { AnimatedNetwork } from "@/components/ui/AnimatedNetwork";
-import { Boxes } from "@/components/ui/background-boxes";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/social";
 import { cn } from "@/lib/utils";
@@ -57,7 +56,7 @@ export function Hero() {
     >
       <AnimatedNetwork />
       <div
-        className="absolute inset-0 pointer-events-none z-10"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse 60% 50% at 50% 20%, var(--glow), transparent)",

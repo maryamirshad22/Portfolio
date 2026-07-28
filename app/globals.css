@@ -123,3 +123,10 @@ body {
   );
   background-size: 24px 24px;
 }
+
+/* Hides the native cursor everywhere while the custom GSAP cursor is active
+   (desktop/fine-pointer only — CustomCursor.tsx only adds this class then). */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}

@@ -55,9 +55,9 @@ export function Skills() {
           className="grid sm:grid-cols-2 gap-x-10 gap-y-6"
         >
           {group.items.map((item, i) => (
-            <div key={item.name}>
+            <div key={item.name} className="group rounded-xl px-3 -mx-3 hover:bg-[var(--surface)] transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-[var(--text-muted)]">{item.name}</span>
+                <span className="text-sm text-[var(--text-muted)] group-hover:text-[var(--text)] transition-colors">{item.name}</span>
                 <span className="font-mono-eyebrow text-xs text-[var(--text-faint)]">
                   {item.level}%
                 </span>
@@ -67,7 +67,7 @@ export function Skills() {
                   initial={{ width: 0 }}
                   animate={{ width: `${item.level}%` }}
                   transition={{ duration: 0.7, delay: 0.1 + i * 0.06, ease: "easeOut" }}
-                  className="h-full rounded-full bg-gradient-to-r from-[var(--color-accent-violet)] to-[var(--color-accent-cyan)]"
+                  className="h-full rounded-full bg-gradient-to-r from-[var(--color-accent-violet)] to-[var(--color-accent-cyan)] group-hover:brightness-110 transition-[filter]"
                 />
               </div>
             </div>

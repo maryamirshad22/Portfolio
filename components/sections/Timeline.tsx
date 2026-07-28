@@ -22,9 +22,9 @@ export function Timeline() {
         <div className="space-y-10">
           {timeline.map((item, i) => (
             <Reveal key={`${item.year}-${i}`} delay={i * 0.08} y={16}>
-              <div className="relative">
+              <div className="relative group rounded-xl px-4 -mx-4 hover:bg-[var(--surface)] transition-colors">
                 <span
-                  className="absolute -left-8 sm:-left-10 top-1.5 h-3.5 w-3.5 rounded-full"
+                  className="absolute -left-8 sm:-left-10 top-1.5 h-3.5 w-3.5 rounded-full transition-transform group-hover:scale-125"
                   style={{
                     background: dotColor[item.type],
                     boxShadow: `0 0 0 4px var(--bg)`,
@@ -33,7 +33,7 @@ export function Timeline() {
                 <p className="font-mono-eyebrow text-xs text-[var(--text-faint)] mb-1">
                   {item.year}
                 </p>
-                <h3 className="font-display font-semibold text-lg mb-1.5">{item.title}</h3>
+                <h3 className="font-display font-semibold text-lg mb-1.5 group-hover:text-[var(--color-accent-violet)] transition-colors">{item.title}</h3>
                 <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-lg">
                   {item.description}
                 </p>

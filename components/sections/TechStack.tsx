@@ -22,7 +22,7 @@ function Row({ reverse = false }: { reverse?: boolean }) {
         {items.map((t, i) => (
           <span
             key={`${t.name}-${i}`}
-            className="flex items-center gap-2 shrink-0 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm whitespace-nowrap"
+            className="flex items-center gap-2 shrink-0 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm whitespace-nowrap hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)] transition-colors cursor-default"
           >
             <span
               className="h-1.5 w-1.5 rounded-full shrink-0"

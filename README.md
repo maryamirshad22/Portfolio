@@ -130,10 +130,28 @@ silently failing, and logs a reminder to the server console.
 - A site-wide interactive grid background (`components/ui/background-boxes.tsx` +
   `components/ui/AnimatedBackground.tsx`) sits fixed behind every section — a
   hover-reactive box grid (adapted from a common "background boxes" pattern,
-  cut down from 15,000 to ~750 cells for performance) with a radial mask so it
-  glows near the center of the viewport and fades to solid at the edges. Colors
-  and borders pull from the theme tokens, so it adapts to dark/light mode
-  automatically. The Hero heading uses GSAP for a word-by-word stagger reveal on load.
+  cut down from 15,000 to ~1,200 cells and rebuilt as a plain, non-transformed
+  grid so it reliably covers the full viewport) with a soft radial-gradient
+  vignette so it glows near the center and fades to solid at the edges. On top
+  of hover, a GSAP loop continuously "twinkles" random cells on its own so the
+  grid stays visibly alive. Colors and borders pull from the theme tokens, so
+  it adapts to dark/light mode automatically.
+- A GSAP ScrollTrigger-powered progress bar (`components/ui/ScrollProgress.tsx`)
+  fills across the very top of the page as you scroll.
+- A custom GSAP cursor (`components/ui/CustomCursor.tsx`) — a lagging ring +
+  tight dot that scales up over links/buttons — replaces the native cursor on
+  desktop (fine-pointer) devices only, and is skipped entirely on touch
+  devices and under `prefers-reduced-motion`.
+- Projects render in a bento-style grid (`components/sections/ProjectsGrid.tsx`)
+  with the first project spanning both columns. Each card shows an honest
+  status pill — **Live** (has a real `demo` link), **Ongoing** (`demoNote`
+  mentions "development"/"progress"), or **Private Codebase** (no public
+  link) — derived automatically in `lib/project-status.ts` from each
+  project's existing `github`/`demo`/`githubNote`/`demoNote` fields, so no
+  extra data entry is needed per project.
+- Scroll-reveals (`components/ui/Reveal.tsx`) now include a subtle
+  scale + blur-in alongside the fade/slide, used consistently across every section.
+- The Hero heading uses GSAP for a word-by-word stagger reveal on load.
 - Projects (web + AI) live in one filterable section (`components/sections/ProjectsGrid.tsx`)
   with All / Web / AI tabs, instead of a separate AI Projects section — add new
   projects to `data/projects.ts` with the right `category` and they're picked up

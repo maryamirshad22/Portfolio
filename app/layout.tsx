@@ -6,6 +6,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 import { siteConfig } from "@/data/social";
 
 const inter = Inter({
@@ -82,6 +84,8 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <AnimatedBackground />
+          <ScrollProgress />
+          <CustomCursor />
           <div className="relative z-10">
             <a
               href="#main-content"
