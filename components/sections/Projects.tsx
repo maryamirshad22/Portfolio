@@ -1,8 +1,10 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectsGrid } from "./ProjectsGrid";
-import { projects } from "@/data/projects";
+import { readProjects } from "@/lib/projects-store";
 
 export function Projects() {
+  const projects = readProjects();
+
   return (
     <section id="projects" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-32">
       <div
@@ -22,3 +24,4 @@ export function Projects() {
     </section>
   );
 }
+

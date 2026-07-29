@@ -12,6 +12,10 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Blog } from "@/components/sections/Blog";
 import { Contact } from "@/components/sections/Contact";
 
+// The Projects section reads from an admin-editable JSON store at request
+// time (see /admin), so the homepage can't be fully static-prerendered.
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

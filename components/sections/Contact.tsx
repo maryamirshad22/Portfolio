@@ -89,7 +89,7 @@ export function Contact() {
                   name="name"
                   required
                   minLength={2}
-                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm outline-none focus:border-[var(--color-accent-violet)] hover:border-[var(--border-strong)] transition-colors"
+                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm outline-none focus:border-[var(--color-accent-violet)] transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -102,7 +102,7 @@ export function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm outline-none focus:border-[var(--color-accent-violet)] hover:border-[var(--border-strong)] transition-colors"
+                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm outline-none focus:border-[var(--color-accent-violet)] transition-colors"
                   placeholder="you@company.com"
                 />
               </div>
@@ -117,7 +117,7 @@ export function Contact() {
                 required
                 minLength={10}
                 rows={5}
-                className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm outline-none focus:border-[var(--color-accent-violet)] hover:border-[var(--border-strong)] transition-colors resize-none"
+                className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm outline-none focus:border-[var(--color-accent-violet)] transition-colors resize-none"
                 placeholder="Tell me about your project..."
               />
             </div>

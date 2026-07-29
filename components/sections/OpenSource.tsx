@@ -36,19 +36,19 @@ export function OpenSource() {
       <div className="space-y-4">
         {contributions.map((c, i) => (
           <Reveal key={c.repo} delay={i * 0.08}>
-            <a href={c.url} target="_blank" rel="noopener noreferrer" className="block group">
+            <a href={c.url} target="_blank" rel="noopener noreferrer" className="block">
               <GlassCard className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-full bg-[var(--bg-elevated)] border border-[var(--border)] flex items-center justify-center shrink-0 group-hover:border-[var(--border-strong)] transition-colors">
+                <div className="h-10 w-10 rounded-full bg-[var(--bg-elevated)] border border-[var(--border)] flex items-center justify-center shrink-0">
                   <GitPullRequest size={16} className="text-[var(--color-accent-violet)]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <p className="font-mono-eyebrow text-sm truncate group-hover:text-[var(--text)] transition-colors">{c.repo}</p>
+                    <p className="font-mono-eyebrow text-sm truncate">{c.repo}</p>
                     <Badge>{c.type}</Badge>
                   </div>
                   <p className="text-sm text-[var(--text-muted)]">{c.description}</p>
                 </div>
-                <ExternalLink size={15} className="text-[var(--text-faint)] shrink-0 group-hover:text-[var(--color-accent-violet)] transition-colors" />
+                <ExternalLink size={15} className="text-[var(--text-faint)] shrink-0" />
               </GlassCard>
             </a>
           </Reveal>

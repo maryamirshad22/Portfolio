@@ -52,7 +52,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               <button
                 onClick={onClose}
                 aria-label="Close case study"
-                className="absolute top-4 right-4 h-9 w-9 rounded-full glass flex items-center justify-center cursor-pointer hover:bg-[var(--surface-hover)] hover:border-[var(--border-strong)] transition-colors"
+                className="absolute top-4 right-4 h-9 w-9 rounded-full glass flex items-center justify-center cursor-pointer"
               >
                 <X size={16} />
               </button>
@@ -134,7 +134,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-[var(--color-accent-violet)] to-[var(--color-accent-cyan)] text-white hover:shadow-[0_0_24px_var(--glow)] hover:brightness-110 transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-[var(--color-accent-violet)] to-[var(--color-accent-cyan)] text-white"
                   >
                     <ExternalLink size={15} /> Live demo
                   </a>

@@ -54,8 +54,8 @@ export function About() {
         <div className="lg:col-span-2 grid grid-cols-2 gap-4">
           {facts.map((f, i) => (
             <Reveal key={f.label} delay={i * 0.08}>
-              <GlassCard className="h-full group">
-                <f.icon size={18} className="text-[var(--color-accent-violet)] mb-4 group-hover:scale-110 transition-transform" />
+              <GlassCard className="h-full">
+                <f.icon size={18} className="text-[var(--color-accent-violet)] mb-4" />
                 <p className="font-mono-eyebrow text-[10px] uppercase text-[var(--text-faint)] mb-1">
                   {f.label}
                 </p>

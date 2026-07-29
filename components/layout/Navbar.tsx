@@ -77,7 +77,7 @@ export function Navbar() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="lg:hidden h-9 w-9 rounded-full border border-[var(--border)] flex items-center justify-center hover:bg-[var(--surface-hover)] hover:border-[var(--border-strong)] transition-colors cursor-pointer"
+              className="lg:hidden h-9 w-9 rounded-full border border-[var(--border)] flex items-center justify-center"
             >
               <Menu size={16} />
             </button>
@@ -98,7 +98,7 @@ export function Navbar() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="h-9 w-9 rounded-full border border-[var(--border)] flex items-center justify-center hover:bg-[var(--surface-hover)] hover:border-[var(--border-strong)] transition-colors cursor-pointer"
+                className="h-9 w-9 rounded-full border border-[var(--border)] flex items-center justify-center"
               >
                 <X size={16} />
               </button>
@@ -114,7 +114,7 @@ export function Navbar() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-2xl font-display border-b border-[var(--border)] hover:text-[var(--color-accent-violet)] transition-colors"
+                    className="block py-3 text-2xl font-display border-b border-[var(--border)]"
                   >
                     {l.label}
                   </a>

@@ -24,7 +24,7 @@ export function ProjectCard({ project, onOpenCaseStudy, size = "normal" }: Proje
       <div
         className={cn(
           "relative overflow-hidden bg-[var(--bg-elevated)] border-b border-[var(--border)]",
-          size === "large" ? "aspect-[16/7]" : "aspect-[16/9]"
+          size === "large" ? "aspect-[16/7]" : "aspect-[16/10]"
         )}
       >
         <Image
@@ -49,29 +49,29 @@ export function ProjectCard({ project, onOpenCaseStudy, size = "normal" }: Proje
         </div>
       </div>
 
-      <div className="p-4 flex flex-col flex-1">
-        <div className="flex items-start justify-between gap-2 mb-1">
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex items-start justify-between gap-2 mb-1.5">
           <h3
             className={cn(
               "font-display font-semibold",
-              size === "large" ? "text-lg" : "text-base"
+              size === "large" ? "text-xl" : "text-lg"
             )}
           >
             {project.title}
           </h3>
         </div>
-        <p className="text-xs text-[var(--text-muted)] mb-3">{project.tagline}</p>
+        <p className="text-sm text-[var(--text-muted)] mb-4">{project.tagline}</p>
 
-        <div className="flex flex-wrap gap-1 mb-3">
-          {project.tech.slice(0, size === "large" ? 5 : 3).map((t) => (
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {project.tech.slice(0, size === "large" ? 6 : 4).map((t) => (
             <Badge key={t}>{t}</Badge>
           ))}
-          {project.tech.length > (size === "large" ? 5 : 3) && (
-            <Badge>+{project.tech.length - (size === "large" ? 5 : 3)}</Badge>
+          {project.tech.length > (size === "large" ? 6 : 4) && (
+            <Badge>+{project.tech.length - (size === "large" ? 6 : 4)}</Badge>
           )}
         </div>
 
-        <div className="mt-auto flex items-center justify-between pt-3 border-t border-[var(--border)]">
+        <div className="mt-auto flex items-center justify-between pt-4 border-t border-[var(--border)]">
           <button
             onClick={() => onOpenCaseStudy(project)}
             className="inline-flex items-center gap-1 text-sm font-medium hover:text-[var(--color-accent-violet)] transition-colors cursor-pointer"

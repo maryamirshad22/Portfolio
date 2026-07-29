@@ -62,13 +62,13 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr"
+            className="grid sm:grid-cols-2 gap-6 auto-rows-fr"
           >
             {filtered.map((p, i) => (
               <Reveal
                 key={p.slug}
                 delay={i * 0.06}
-                className={cn("h-full", i === 0 && "sm:col-span-2 lg:col-span-2")}
+                className={cn("h-full", i === 0 && "sm:col-span-2")}
               >
                 <ProjectCard
                   project={p}

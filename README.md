@@ -11,7 +11,8 @@ A premium, animated personal portfolio built with Next.js 16 (App Router), TypeS
 - **GSAP** for the site-wide animated background and the Hero's staggered heading reveal
 - **next-themes** for dark/light mode
 - **lucide-react** for icons (+ custom inline SVGs for GitHub/LinkedIn/X, since brand marks were removed from lucide)
-- **zod** for the contact form's API validation
+- **zod** for the contact form and admin API validation
+- **jose** for signing/verifying the admin panel's login session (JWT)
 
 ## Getting started
 
@@ -33,29 +34,90 @@ npm run lint    # ESLint
 ```
 app/
   layout.tsx        Root layout: fonts, SEO metadata, JSON-LD, theme provider
-  page.tsx           Composes every section in order
+  page.tsx           Composes every section in order (force-dynamic — see Admin panel below)
   globals.css        Design tokens (@theme) + dark/light CSS variables
   loading.tsx         Route-level loading skeleton
   sitemap.ts / robots.ts
-  api/contact/route.ts   Contact form endpoint (zod-validated)
+  api/contact/route.ts   Contact form endpoint (zod-validated, sends real email)
+  admin/              Admin panel pages (login, dashboard, add/edit project forms)
+  api/admin/          Admin API routes (login, logout, projects CRUD)
+
+proxy.ts               Protects /admin and /api/admin (Next.js 16's replacement for middleware.ts)
 
 components/
   layout/            Navbar, Footer, ThemeToggle
   sections/          One file per portfolio section (Hero, About, Skills, ...)
   ui/                 Reusable primitives (Button, Badge, GlassCard, ProjectCard,
-                       ProjectModal, CommandPalette, AnimatedNetwork, BrandIcons, Reveal)
+                       ProjectModal, CommandPalette, AnimatedNetwork, BrandIcons, Reveal,
+                       AnimatedBackground, ScrollProgress, CustomCursor, background-boxes)
+  admin/               Admin-only components (AdminShell, ProjectForm, ProjectsTable)
   providers/         ThemeProvider
 
 data/                 All content lives here — edit these files to update the site
-  projects.ts         Project case studies (web + AI)
+  projects.ts         Seed/fallback project data (used if the JSON store is missing)
+  store/projects.json  The live, admin-editable project data — this is what actually
+                       renders on the site once the admin panel has been used at least once
   skills.ts            Skill levels + tech stack marquee items
   experience.ts        Work experience, timeline, certifications, testimonials
   blog.ts               Full blog post content (used by /blog and /blog/[slug])
   social.ts            Site config (name, email, resume URL) + social links
 
+lib/
+  auth.ts               JWT session sign/verify (used by proxy.ts and the login route)
+  projects-store.ts     Server-only read/write helpers for data/store/projects.json
+  project-status.ts     Derives each project's Live/Ongoing/Private Codebase badge
+  utils.ts               `cn()` class-merge helper
+
 types/index.ts        Shared TypeScript types for the content layer
-lib/utils.ts           `cn()` class-merge helper
 ```
+
+## Admin panel
+
+Visit **`/admin`** to manage projects without touching code — add, edit, or delete
+any project, and changes appear on the live site immediately (no rebuild needed).
+
+### Setup
+
+1. Copy `.env.example` to `.env.local` if you haven't already.
+2. Set three values in `.env.local`:
+   ```
+   ADMIN_USERNAME=pick-a-username
+   ADMIN_PASSWORD=pick-a-strong-password
+   ADMIN_JWT_SECRET=a-long-random-string
+   ```
+   Generate a good secret with `openssl rand -base64 32` (or any long random string).
+3. Restart `npm run dev`, then visit `http://localhost:3000/admin` and log in.
+
+### ⚠️ Important: this won't persist writes on Vercel
+
+The admin panel stores project data in `data/store/projects.json` on disk. That
+works perfectly for local development and for hosts with a persistent
+filesystem. **It will not work on Vercel (or any serverless host)** — those
+platforms run your app in a read-only filesystem, so edits made through
+`/admin` on a Vercel deployment won't actually save.
+
+Your options:
+- **Use it locally** — run `npm run dev` or `npm run build && npm run start`
+  on your own machine, edit content there, and re-deploy the updated
+  `data/store/projects.json` file.
+- **Deploy somewhere with persistent disk** — e.g. Railway, Render, Fly.io, or
+  a VPS with Docker — and the admin panel works exactly as-is.
+- **Upgrade to a real database** — the read/write logic is isolated in
+  `lib/projects-store.ts` (two functions: `readProjects` / `writeProjects`).
+  Swap their internals for calls to a hosted database (Vercel Postgres, Neon,
+  Supabase, Turso, etc.) and every API route and admin page keeps working
+  unchanged, since they only ever call those two functions.
+
+### Security notes
+
+- The password check is a plain equality comparison against `ADMIN_PASSWORD`
+  in your environment variables — never commit `.env.local`, and use a
+  genuinely strong password since this env var is effectively your login.
+- Sessions are signed JWTs in an httpOnly cookie (`admin_session`), verified
+  on every request to `/admin/*` and `/api/admin/*` by `proxy.ts`.
+- There's no rate-limiting on the login endpoint. Fine for a personal
+  portfolio behind a private URL; add rate-limiting if you want extra
+  protection against brute-forcing.
 
 ## Personalizing
 
