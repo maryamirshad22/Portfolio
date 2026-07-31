@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { readProjects, writeProjects } from "@/lib/projects-store";
+import { formatZodError } from "@/lib/zod-error";
 
 const projectSchema = z.object({
   slug: z
@@ -47,7 +48,7 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
   const result = projectSchema.safeParse(body);
   if (!result.success) {
     return NextResponse.json(
-      { error: result.error.issues[0]?.message ?? "Invalid project data" },
+      { error: formatZodError(result.error, "Invalid project data") },
       { status: 400 }
     );
   }

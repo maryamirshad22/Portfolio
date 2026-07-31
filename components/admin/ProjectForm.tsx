@@ -67,7 +67,6 @@ export function ProjectForm({ initial }: ProjectFormProps) {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setSaving(true);
     setError("");
 
     const payload = {
@@ -88,6 +87,22 @@ export function ProjectForm({ initial }: ProjectFormProps) {
       featured: form.featured,
       year: form.year.trim() || undefined,
     };
+
+    const requiredFields: { key: keyof typeof payload; label: string }[] = [
+      { key: "slug", label: "Slug" },
+      { key: "title", label: "Title" },
+      { key: "tagline", label: "Tagline" },
+      { key: "description", label: "Description" },
+      { key: "image", label: "Image path" },
+      { key: "role", label: "My role" },
+    ];
+    const missing = requiredFields.find((f) => !payload[f.key]);
+    if (missing) {
+      setError(`"${missing.label}" is required — it looks empty (or just whitespace).`);
+      return;
+    }
+
+    setSaving(true);
 
     try {
       const url = isEditing ? `/api/admin/projects/${initial!.slug}` : "/api/admin/projects";

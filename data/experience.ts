@@ -7,6 +7,7 @@ import {
 
 export const experience: ExperienceItem[] = [
   {
+    id: "ait-developer-intern",
     company: "Al-Khair Institute of Technology (AIT)",
     role: "Developer Intern",
     start: "March 2026",
@@ -23,6 +24,7 @@ export const experience: ExperienceItem[] = [
     stack: ["Next.js", "React.js", "Tailwind CSS", "Django", "Django REST Framework", "PostgreSQL", "Docker", "Git & GitHub"],
   },
   {
+    id: "freelance-web-developer",
     company: "Freelance / Independent",
     role: "Freelance Web Developer",
     start: "2024",

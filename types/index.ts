@@ -18,6 +18,7 @@ export interface Project {
 }
 
 export interface SkillGroup {
+  id: string;
   label: string;
   items: { name: string; level: number }[];
 }
@@ -29,6 +30,7 @@ export interface TechItem {
 }
 
 export interface ExperienceItem {
+  id: string;
   company: string;
   role: string;
   start: string;

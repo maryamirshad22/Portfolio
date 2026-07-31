@@ -2,11 +2,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
-import { experience } from "@/data/experience";
+import { readExperience } from "@/lib/experience-store";
 import { formatRange } from "@/lib/utils";
 import { Briefcase } from "lucide-react";
 
 export function Experience() {
+  const experience = readExperience();
+
   return (
     <section id="experience" className="mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-32">
       <SectionHeading
@@ -16,7 +18,7 @@ export function Experience() {
 
       <div className="space-y-6">
         {experience.map((e, i) => (
-          <Reveal key={e.company} delay={i * 0.1}>
+          <Reveal key={e.id} delay={i * 0.1}>
             <GlassCard hover={false} className="grid md:grid-cols-[220px_1fr] gap-6">
               <div>
                 <div className="flex items-center gap-2 mb-2 md:hidden">

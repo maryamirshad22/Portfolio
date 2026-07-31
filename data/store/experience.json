@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ait-developer-intern",
+    "company": "Al-Khair Institute of Technology (AIT)",
+    "role": "Developer Intern",
+    "start": "March 2026",
+    "end": "July 2026",
+    "location": "Pakistan",
+    "summary": "Contributed to three production web projects as part of a development team — building CRUD-heavy full-stack modules, recreating a client website end to end, and laying the backend foundation for an AI-driven platform.",
+    "highlights": [
+      "Built and maintained Employee Management System (EMS) modules — institutions, departments, designations, branches, employees, and dashboards — integrating frontend components with Django REST APIs",
+      "Recreated the Sherwani Builder main website and four subpages (Bloome Garden, Sherwani Royal Suite, Address One, Hub Valley), including full site navigation",
+      "Developed Admin, Teacher, Student, and Coordinator dashboards for a Learning Management System (LMS) with reusable components and a consistent design system",
+      "Designed the custom-auth and content-management backend for the AITS Website, applying research into AI agents, LLM APIs, and the Model Context Protocol (MCP)"
+    ],
+    "stack": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Django",
+      "Django REST Framework",
+      "PostgreSQL",
+      "Docker",
+      "Git & GitHub"
+    ]
+  },
+  {
+    "id": "freelance-web-developer",
+    "company": "Freelance / Independent",
+    "role": "Freelance Web Developer",
+    "start": "2024",
+    "end": "Present",
+    "location": "Remote",
+    "summary": "Independent freelance web development work using Next.js, React, and Tailwind CSS, alongside academic and internship commitments.",
+    "highlights": [],
+    "stack": [
+      "Next.js",
+      "React",
+      "Tailwind CSS"
+    ]
+  }
+]

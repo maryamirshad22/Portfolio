@@ -33,13 +33,19 @@ npm run lint    # ESLint
 
 ```
 app/
-  layout.tsx        Root layout: fonts, SEO metadata, JSON-LD, theme provider
-  page.tsx           Composes every section in order (force-dynamic — see Admin panel below)
-  globals.css        Design tokens (@theme) + dark/light CSS variables
-  loading.tsx         Route-level loading skeleton
+  (site)/            Public site route group — has its own root layout
+    layout.tsx        Root layout: fonts, SEO metadata, JSON-LD, theme provider,
+                       Navbar/Footer/animated background/cursor
+    page.tsx           Composes every section in order (force-dynamic — see Admin panel below)
+    loading.tsx         Route-level loading skeleton
+    blog/               Blog index + [slug] post pages
+  (admin)/           Admin panel route group — its own independent root layout,
+                       deliberately with NO Navbar/Footer/animated background/cursor
+    layout.tsx         Minimal root layout: just fonts + theme provider
+    admin/              Login, dashboard, add/edit project forms
+  globals.css        Design tokens (@theme) + dark/light CSS variables (imported by both layouts)
   sitemap.ts / robots.ts
   api/contact/route.ts   Contact form endpoint (zod-validated, sends real email)
-  admin/              Admin panel pages (login, dashboard, add/edit project forms)
   api/admin/          Admin API routes (login, logout, projects CRUD)
 
 proxy.ts               Protects /admin and /api/admin (Next.js 16's replacement for middleware.ts)
@@ -50,22 +56,31 @@ components/
   ui/                 Reusable primitives (Button, Badge, GlassCard, ProjectCard,
                        ProjectModal, CommandPalette, AnimatedNetwork, BrandIcons, Reveal,
                        AnimatedBackground, ScrollProgress, CustomCursor, background-boxes)
-  admin/               Admin-only components (AdminShell, ProjectForm, ProjectsTable)
+  admin/               Admin-only components (AdminShell, ProjectForm, ProjectsTable,
+                       ExperienceForm, ExperienceTable, SkillGroupForm, SkillGroupsTable)
   providers/         ThemeProvider
 
 data/                 All content lives here — edit these files to update the site
   projects.ts         Seed/fallback project data (used if the JSON store is missing)
-  store/projects.json  The live, admin-editable project data — this is what actually
-                       renders on the site once the admin panel has been used at least once
-  skills.ts            Skill levels + tech stack marquee items
-  experience.ts        Work experience, timeline, certifications, testimonials
+  experience.ts        Seed/fallback for the `experience` array, plus the fully static
+                       timeline, certifications, and testimonials (not admin-editable yet)
+  skills.ts             Seed/fallback skill groups + tech stack marquee items
+  store/                 The live, admin-editable data — this is what actually renders
+                         on the site once the admin panel has been used at least once
+    projects.json          Edited via /admin
+    experience.json         Edited via /admin/experience
+    skills.json              Edited via /admin/skills
   blog.ts               Full blog post content (used by /blog and /blog/[slug])
   social.ts            Site config (name, email, resume URL) + social links
 
 lib/
   auth.ts               JWT session sign/verify (used by proxy.ts and the login route)
   projects-store.ts     Server-only read/write helpers for data/store/projects.json
+  experience-store.ts   Server-only read/write helpers for data/store/experience.json
+  skills-store.ts        Server-only read/write helpers for data/store/skills.json
   project-status.ts     Derives each project's Live/Ongoing/Private Codebase badge
+  zod-error.ts           Formats validation errors as "field: message" so admin
+                         forms always show exactly which field is the problem
   utils.ts               `cn()` class-merge helper
 
 types/index.ts        Shared TypeScript types for the content layer
@@ -73,8 +88,18 @@ types/index.ts        Shared TypeScript types for the content layer
 
 ## Admin panel
 
-Visit **`/admin`** to manage projects without touching code — add, edit, or delete
-any project, and changes appear on the live site immediately (no rebuild needed).
+Visit **`/admin`** to manage your content without touching code — three sections,
+each with add/edit/delete:
+
+- **Projects** (`/admin`) — the same project data shown in Featured Projects
+- **Experience** (`/admin/experience`) — work experience entries
+- **Skills** (`/admin/skills`) — skill groups, each with its own list of
+  named skills and proficiency levels (add/remove individual skills inline)
+
+Changes appear on the live site immediately — no rebuild needed. Validation
+errors now always name the exact field that's the problem (e.g. `role: Too
+small: expected string to have >=1 characters`) instead of a vague message,
+and the forms also catch empty required fields client-side before submitting.
 
 ### Setup
 
@@ -182,6 +207,12 @@ silently failing, and logs a reminder to the server console.
 
 ## Design system
 
+- The app uses **two independent root layouts** via route groups —
+  `app/(site)/layout.tsx` (Navbar, Footer, animated background, custom cursor,
+  full SEO metadata) and `app/(admin)/layout.tsx` (bare — just fonts and the
+  theme provider, `noindex`). This keeps the admin panel completely free of
+  the public site's chrome; neither layout leaks into the other. Route groups
+  don't affect URLs, so `/admin` and `/` work exactly as you'd expect.
 - Colors, fonts, and radii are defined once in `app/globals.css` under `@theme`
   and a `[data-theme]` block, so dark/light mode is a single CSS variable swap —
   no component-level conditionals.

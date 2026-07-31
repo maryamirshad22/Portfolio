@@ -2,6 +2,7 @@ import { SkillGroup, TechItem } from "@/types";
 
 export const skillGroups: SkillGroup[] = [
   {
+    id: "frontend",
     label: "Frontend",
     items: [
       { name: "React & Next.js", level: 92 },
@@ -11,6 +12,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "backend",
     label: "Backend",
     items: [
       { name: "Python", level: 85 },
@@ -20,6 +22,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "ai-agents",
     label: "AI & Agents",
     items: [
       { name: "AI Agent Design", level: 55 },
@@ -29,6 +32,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "security-networking",
     label: "Security & Networking",
     items: [
       { name: "Network Fundamentals", level: 45 },
@@ -36,6 +40,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "tooling",
     label: "Tooling",
     items: [
       { name: "Docker", level: 76 },
