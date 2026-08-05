@@ -189,6 +189,7 @@
     "role": "Designed and implemented the chatbot's animated avatar and front-end UI for iak.ngo, iterating through several visual directions to match a holographic reference design while keeping the implementation lightweight.",
     "demoNote": "Built for iak.ngo",
     "featured": true
+<<<<<<< HEAD
   },
   {
     "slug": "visitor-management-system",
@@ -240,5 +241,7 @@
     ],
     "role": "develper",
     "featured": true
+=======
+>>>>>>> 1a8acd615ea30a7e029d66170833fef47f1a65f6
   }
 ]
