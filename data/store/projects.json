@@ -1,0 +1,244 @@
+[
+  {
+    "slug": "employee-management-system",
+    "title": "Employee Management System (EMS)",
+    "tagline": "A modern employee management platform for streamlining organizational operations.",
+    "description": "A full-stack web application designed to manage employees, departments, branches, designations, and organizational data efficiently. The system provides an intuitive interface for administrators to perform complete employee management with secure backend APIs.",
+    "category": "web",
+    "image": "/images/projects/ems.svg",
+    "tech": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Django",
+      "Django Ninja",
+      "PostgreSQL",
+      "Docker",
+      "Git & GitHub"
+    ],
+    "features": [
+      "Employee CRUD (Create, Read, Update, Delete)",
+      "Department, branch & designation management",
+      "Organization & institution management",
+      "Authentication & protected routes",
+      "Responsive admin dashboard",
+      "REST API integration"
+    ],
+    "challenges": [
+      "Connected the frontend with Django backend APIs",
+      "Implemented reusable and scalable UI components",
+      "Managed authentication and protected API requests",
+      "Improved dashboard layout, responsiveness, and user experience",
+      "Fixed API integration, validation, and state management issues"
+    ],
+    "role": "Worked as a Full Stack Developer Intern in a collaborative team. Contributed to both frontend and backend development, implemented new modules, integrated APIs, fixed bugs, improved UI/UX, and optimized application performance.",
+    "featured": true
+  },
+  {
+    "slug": "learning-management-system",
+    "title": "Learning Management System (LMS)",
+    "tagline": "A comprehensive learning platform for students, teachers, coordinators, and administrators.",
+    "description": "A role-based Learning Management System that allows institutions to manage courses, attendance, students, teachers, assignments, and academic activities through dedicated dashboards.",
+    "category": "web",
+    "image": "/images/projects/lms.svg",
+    "tech": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Django",
+      "Django Ninja",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "features": [
+      "Admin dashboard",
+      "Teacher dashboard",
+      "Student dashboard",
+      "Coordinator dashboard",
+      "Attendance management",
+      "Course management"
+    ],
+    "challenges": [
+      "Developed responsive dashboard layouts",
+      "Improved spacing and UI consistency across pages",
+      "Built reusable components",
+      "Connected frontend with backend APIs",
+      "Enhanced overall user experience"
+    ],
+    "role": "Worked as a Full Stack Developer Intern in a team environment. Developed features across multiple dashboards, improved UI, integrated APIs, and collaborated with backend developers.",
+    "featured": true
+  },
+  {
+    "slug": "iak-website",
+    "title": "IAK (Idara Al-Khair) Website",
+    "tagline": "A modern nonprofit organization website focused on accessibility and user experience.",
+    "description": "A website redesign project aimed at modernizing the user interface while preserving the organization's branding, content, and mission. The focus was on improving usability, responsiveness, and visual consistency.",
+    "category": "web",
+    "image": "/images/projects/iak.svg",
+    "tech": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Figma",
+      "Git"
+    ],
+    "features": [
+      "Modern responsive design",
+      "Improved navigation",
+      "Better visual hierarchy",
+      "Performance optimization",
+      "Mobile-friendly layout"
+    ],
+    "challenges": [
+      "Maintained existing branding while modernizing the UI",
+      "Improved spacing and component consistency",
+      "Enhanced accessibility and responsiveness",
+      "Planned the redesign through research and documentation before implementation"
+    ],
+    "role": "Worked on research, UI redesign planning, frontend implementation, responsive layouts, and overall user experience improvements as part of the development team.",
+    "githubNote": "Private repository",
+    "demoNote": "Available on request",
+    "featured": true
+  },
+  {
+    "slug": "sherwani-builder-website",
+    "title": "Sherwani Builder Website",
+    "tagline": "A pixel-consistent recreation of a real estate builder's website, main page plus four subpages.",
+    "description": "Rebuilt the main landing page and subpages for Sherwani Groups and Builders from a reference design, including Bloome Garden, Sherwani Royal Suite, Address One, and Hub Valley — matching layout, imagery, and content section-by-section while keeping the whole site consistent and responsive.",
+    "category": "web",
+    "image": "/images/projects/sherwani.svg",
+    "tech": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Git & GitHub"
+    ],
+    "features": [
+      "Main landing page plus four fully built subpages (Bloome Garden, Sherwani Royal Suite, Address One, Hub Valley)",
+      "Site-wide navigation system with smooth dropdown transitions",
+      "Reusable component architecture shared across all pages",
+      "Section-by-section image and content matching against the reference design",
+      "Responsive layouts verified across every page"
+    ],
+    "challenges": [
+      "Matching a reference design closely while still building with reusable, maintainable components",
+      "Sourcing and aligning imagery so every section's visuals matched its heading and copy exactly",
+      "Keeping five separate pages visually and structurally consistent",
+      "Implementing a navigation system with dropdowns that stayed smooth across the whole site"
+    ],
+    "role": "Frontend Developer Intern — recreated the main page and all four subpages from the reference design, built the site navigation, and handled responsive QA across the full site.",
+    "featured": true
+  },
+  {
+    "slug": "aits-website",
+    "title": "AITS Website",
+    "tagline": "Backend architecture for an AI-driven customer support platform.",
+    "description": "Backend and content-management foundation for an AI customer support platform, built after a focused study period on AI chatbots, agents, LLM APIs, prompt engineering, and the Model Context Protocol (MCP) — applying those concepts to real authentication and API architecture rather than just tutorials.",
+    "category": "ai",
+    "image": "/images/projects/aits.svg",
+    "tech": [
+      "Django",
+      "Django REST Framework",
+      "PostgreSQL",
+      "Docker",
+      "Next.js",
+      "Git & GitHub"
+    ],
+    "features": [
+      "Custom User model extending Django's AbstractUser for role-based access control",
+      "Core content models for Hero Section, Tech Features, and Contact Inquiry, serialized via DRF",
+      "PostgreSQL migrated from SQLite and containerized with Docker Compose",
+      "Django Admin dashboard set up for content management",
+      "CORS-configured API layer for secure Next.js frontend integration"
+    ],
+    "challenges": [
+      "Migrated the project database from SQLite to a Dockerized PostgreSQL setup",
+      "Resolved environment/SECRET_KEY configuration issues by restructuring the .env setup",
+      "Fixed a TemplateDoesNotExist routing issue during initial API wiring",
+      "Configured CORS to establish secure frontend-backend communication"
+    ],
+    "role": "Backend Developer Intern — designed the custom auth and content-management architecture, applying prior research into AI agents, LLM APIs, and MCP as groundwork for the platform's AI customer-support direction. Ongoing project.",
+    "demoNote": "In development",
+    "featured": true
+  },
+  {
+    "slug": "iak-chatbot",
+    "title": "Idara Al-Khair (IAK) Chatbot",
+    "tagline": "An animated AI chatbot widget with a holographic avatar, built for iak.ngo.",
+    "description": "A chatbot front-end interface for Idara Al-Khair's nonprofit website, built around a fully custom-animated avatar. Iterated through several visual directions — a breathing gradient circle, a glowing morphing blob — before landing on a holographic, iridescent design, all implemented in pure CSS to keep the widget fast and dependency-free.",
+    "category": "ai",
+    "image": "/images/projects/iak-chatbot.svg",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "CSS Animations"
+    ],
+    "features": [
+      "Holographic, iridescent avatar built from layered conic-gradients with slow hue-rotate shimmer",
+      "Organic breathing and morphing animations for a 'living' avatar feel",
+      "Entirely CSS-based animation — no Three.js or WebGPU, so bundle size and performance stay untouched",
+      "Respects prefers-reduced-motion for accessibility",
+      "Iteratively refined avatar design to match a specific holographic reference image"
+    ],
+    "challenges": [
+      "Recreating an organic, glowing, almost-3D visual effect using only CSS, instead of a heavy Three.js/WebGPU component",
+      "Iterating through multiple avatar concepts (solid circle → glowing blob → holographic shimmer) based on visual feedback",
+      "Keeping the animation lightweight enough to not affect load time or performance on any device"
+    ],
+    "role": "Designed and implemented the chatbot's animated avatar and front-end UI for iak.ngo, iterating through several visual directions to match a holographic reference design while keeping the implementation lightweight.",
+    "demoNote": "Built for iak.ngo",
+    "featured": true
+  },
+  {
+    "slug": "visitor-management-system",
+    "title": "Visitor Management System (VMS)",
+    "tagline": "A modern visitor management system with QR check-in, real-time dashboard, and smart visitor tracking.",
+    "description": "Visitor Management System (VMS) is a full-stack web application designed to streamline visitor registration and management for offices, schools, hospitals, and organizations.\n\nThe system provides receptionist-based manual check-in, QR code self check-in, pre-scheduled visits, duplicate visitor detection, real-time notifications using WebSockets, analytics dashboard, and host management.\n\nBuilt with Next.js, Django REST Framework, PostgreSQL, Redis, Docker, and JWT Authentication, the application delivers a fast, secure, and scalable visitor management experience.",
+    "category": "web",
+    "image": "/images/projects/vms.png",
+    "tech": [
+      "Next.js 14",
+      "React",
+      "TypeScript",
+      "Django 4.2",
+      "Django REST Framework",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Nginx",
+      "JWT Authentication",
+      "WebSockets",
+      "Django Channels",
+      "Axios",
+      "Zustand",
+      "Tailwind CSS"
+    ],
+    "features": [
+      "Receptionist dashboard with live visitor updates",
+      "Manual visitor registration",
+      "QR code self check-in",
+      "Real-time approval and rejection",
+      "Pre-scheduled visitor management",
+      "Automatic duplicate visitor detection",
+      "Returning visitor identification",
+      "Dashboard analytics and statistics",
+      "Employee/Host management",
+      "JWT Authentication",
+      "WebSocket live notifications",
+      "Responsive modern UI"
+    ],
+    "challenges": [
+      "Implemented real-time communication using Django Channels and WebSockets",
+      "Built duplicate visitor detection using CNIC, phone, and email priority",
+      "Integrated QR code based visitor check-in",
+      "Designed secure JWT authentication",
+      "Managed Dockerized full-stack deployment",
+      "Created scalable REST APIs using Django REST Framework",
+      "Connected Next.js frontend with Django backend",
+      "Implemented role-based access for Admin and Receptionist"
+    ],
+    "role": "develper",
+    "featured": true
+  }
+]
